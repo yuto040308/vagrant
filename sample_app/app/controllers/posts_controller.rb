@@ -15,6 +15,14 @@ class PostsController < ApplicationController
   	redirect_to '/top'
   end
 
+  def index
+  	@posts = Post.all
+  end
+
+  def show
+  	@post = Post.find(params[:id])
+  end
+
   # ストロングパラメータ指定（マスアサインメント脆弱性セキュリティ対策）
   # メゾットの前に、privateとしていすると、アクションとして認識しない。
   # アクションの最後に記載すること！！

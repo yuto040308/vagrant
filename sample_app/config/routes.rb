@@ -9,4 +9,7 @@ Rails.application.routes.draw do
 
   get 'posts' => 'posts#index'
 
+  # 名前付きルート。 posts#showの設定をpostとして利用できるようにする。
+  get 'posts/:id' => 'posts#show', as: 'post'
+
 end
