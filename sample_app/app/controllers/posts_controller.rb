@@ -23,6 +23,16 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   end
 
+  def edit
+  	@post = Post.find(params[:id])
+  end
+
+  def update
+  	post = Post.find(params[:id])
+  	post.update(post_params)
+  	redirect_to post_path(post.id)
+  end
+
   # ストロングパラメータ指定（マスアサインメント脆弱性セキュリティ対策）
   # メゾットの前に、privateとしていすると、アクションとして認識しない。
   # アクションの最後に記載すること！！

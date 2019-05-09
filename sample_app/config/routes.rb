@@ -14,4 +14,7 @@ Rails.application.routes.draw do
 
   get 'posts/:id/edit' => 'posts#edit', as: 'edit_post'
 
+  # 更新用のため、patchを利用
+  patch 'posts/:id' => 'posts#update', as: 'update_post'
+
 end
