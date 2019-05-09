@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   # 名前付きルート。 posts#showの設定をpostとして利用できるようにする。
   get 'posts/:id' => 'posts#show', as: 'post'
 
+  get 'posts/:id/edit' => 'posts#edit', as: 'edit_post'
+
 end
