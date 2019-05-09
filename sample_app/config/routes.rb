@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   # topというURLにアクセスしたときに、rootコントローラのtopメゾットを呼ぶ
   get 'top' => 'root#top'
 
+  post 'posts' => 'posts#create'
+
 end
