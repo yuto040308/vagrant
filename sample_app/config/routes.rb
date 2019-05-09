@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   post 'posts' => 'posts#create'
 
+  get 'posts' => 'posts#index'
+
 end
