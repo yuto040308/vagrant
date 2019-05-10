@@ -3,10 +3,11 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # topというURLにアクセスしたときに、rootコントローラのtopメゾットを呼ぶ
+
   get 'top' => 'root#top'
 
   post 'posts' => 'posts#create'
-
+  # 実際には、http://localhost:3000/posts URLが叩かれた時に動く
   get 'posts' => 'posts#index'
 
   # 名前付きルート。 posts#showの設定をpostとして利用できるようにする。
