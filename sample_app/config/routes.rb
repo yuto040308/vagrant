@@ -17,4 +17,6 @@ Rails.application.routes.draw do
   # 更新用のため、patchを利用
   patch 'posts/:id' => 'posts#update', as: 'update_post'
 
+  delete 'posts/:id' => 'posts#destroy', as: 'destroy_post'
+
 end
