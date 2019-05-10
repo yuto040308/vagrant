@@ -1,0 +1,6 @@
+問1.b
+    def post_params
+    	params.require(:モデル名).permit(:カラム名1,:カラム名2)
+    end
+
+問2.a
