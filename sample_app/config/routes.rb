@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'posts' => 'posts#index'
 
   # 名前付きルート。 posts#showの設定をpostとして利用できるようにする。
+  # ビューやコントローラ上で、posts_pathという形で呼び出せる。
   get 'posts/:id' => 'posts#show', as: 'post'
 
   get 'posts/:id/edit' => 'posts#edit', as: 'edit_post'

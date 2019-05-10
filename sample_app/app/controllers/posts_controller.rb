@@ -33,6 +33,12 @@ class PostsController < ApplicationController
   	redirect_to post_path(post.id)
   end
 
+  def destroy
+  		post = Post.find(params[:id])
+        post.destroy
+        redirect_to posts_path
+  end
+
   # ストロングパラメータ指定（マスアサインメント脆弱性セキュリティ対策）
   # メゾットの前に、privateとしていすると、アクションとして認識しない。
   # アクションの最後に記載すること！！
