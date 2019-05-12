@@ -30,13 +30,19 @@
 	<h2>New book</h2>
 	<%= form_for(@book) do |f| %>
 		
-		<p>Title</p>
-		<%= f.text_field :title %>
+		<div class="new-field">
+			<p>Title</p>
+			<%= f.text_field :title %>
+		</div>
 
-		<p>Body</p>
-		<%= f.text_area :body %>
+		<div class="new-field">
+			<p>Body</p>
+			<%= f.text_area :body %>
+		</div>
 
-		<%= f.submit 'Create Book'%>
+		<div class="new-field">
+			<p><%= f.submit 'Create Book'%></p>
+		</div>
 
 	<% end %>
 

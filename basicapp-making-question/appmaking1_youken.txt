@@ -73,7 +73,7 @@ OK 8.index画面で投稿一覧を観れるようにする。
 　show,edit,destroy、createリンクは切っておく
 　ここまでが目標1
 
-9.show画面の作成
+OK 9.show画面の作成
 
 10.index画面からshow画面、show画面からindex画面に遷移できるようにする。
    new機能の実装。この段階では、Editリンクを切っておく

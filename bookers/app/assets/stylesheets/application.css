@@ -59,6 +59,14 @@ strong {
 	padding-right: 5px;
 }
 
+.index-page p {
+	margin: 0;
+}
+
+.new-field {
+	margin-bottom: 10px;
+}
+
 /*							*/
 /* 		showページ部分		*/
 /*							*/
