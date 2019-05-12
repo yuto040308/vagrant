@@ -55,11 +55,13 @@ OK 2.rails g model Book title:string body:text
 OK 3.rails g controller bookers top index show edit
   と入力して、コントローラとviewを作成
 
-4.config/routes.rbに
+OK 4.config/routes.rbに
   resources :books と記入する。
 
-5.config/routes.rbファイルを編集します。
-    root to: 'home#index'
+OK 5.config/routes.rbファイルを編集します。
+    root to: 'home#top'
+
+OK 5-2.トップページの表示
 
 6.トップページの作成。
   一覧リンクはとりあえず#にしておく。
