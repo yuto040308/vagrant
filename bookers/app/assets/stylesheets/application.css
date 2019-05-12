@@ -39,3 +39,26 @@ strong {
 .top-page strong {
 	font-weight: bold;
 }
+
+/*							*/
+/* 		indexページ部分		*/
+/*							*/
+
+.index-page h1 {
+	font-size: 26px;
+}
+
+.index-page th {
+	padding-bottom: 5px;
+	font-size: 13px;
+}
+
+.index-page td {
+	padding-top: 1px;
+	padding-bottom: 7px;
+	padding-left: 5px;
+	padding-right: 5px;
+	font-size: 13px;
+}
+
+
