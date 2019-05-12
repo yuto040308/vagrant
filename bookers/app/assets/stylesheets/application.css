@@ -17,6 +17,8 @@
 body {
  	font-family: verdana, arial, helvetica, sans-serif;
  	color: #333;
+ 	margin: 33px;
+ 	line-height: 18px;
  }
 
 strong {
@@ -26,13 +28,6 @@ strong {
  /*						*/
  /* 	TOPページ部分		*/
  /*						*/
-.top-page {
-	margin: 33px;
-}
-
-.top-page h1 {
-	line-height: 18px;
-}
 
 .top-page p {
 	margin: 33px;
