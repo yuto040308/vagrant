@@ -1,4 +1,9 @@
 <div class="show-page">
+	<!-- flashメッセージが存在する場合は表示 -->
+	<% if flash[:notice] %>
+		<p id="notice"><%= flash[:notice] %></p>
+	<% end %>
+
 	<p><strong>Title: </strong><%= @book.title %></p>
 	<p><strong>Body: </strong><%= @book.body %></p>
 	<%= link_to "Edit", edit_book_path(@book.id),class:"edit_#{@book.id}" %>

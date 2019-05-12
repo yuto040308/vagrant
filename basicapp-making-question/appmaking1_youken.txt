@@ -75,7 +75,7 @@ OK 8.index画面で投稿一覧を観れるようにする。
 
 OK 9.show画面の作成
 
-10.index画面からshow画面、show画面からindex画面に遷移できるようにする。
+OK 10.index画面からshow画面、show画面からindex画面に遷移できるようにする。
    new機能の実装。この段階では、Editリンクを切っておく
 
 11.edit画面、機能の実装。edit画面からshow画面に遷移できるようにする。
