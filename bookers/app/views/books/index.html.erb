@@ -21,9 +21,9 @@
 				<tr>
 					<td><%= book.title %></td>
 					<td><%= book.body %></td>
-					<td><%= link_to "Show", book_path(book.id),class:"show_#{book.id}" %></td>
-					<td><%= link_to "Edit", edit_book_path(book.id),class:"edit_#{book.id}" %></td>
-					<td><%= link_to "Destroy", book_path(book.id) ,class:"destroy_#{book.id}",method: :delete, data: {confirm: "Are you sure?"} %></td>
+					<td><%= link_to "Show", book_path(book.id),class: "show_#{book.id}" %></td>
+					<td><%= link_to "Edit", edit_book_path(book.id),class: "edit_#{book.id}" %></td>
+					<td><%= link_to "Destroy", book_path(book.id) ,class: "destroy_#{book.id}",method: :delete, data: {confirm: "Are you sure?"} %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -37,12 +37,12 @@
 		
 		<div class="new-field">
 			<p class="index-margin">Title</p>
-			<%= f.text_field :title %>
+			<%= f.text_field :title, class: "book_title" %>
 		</div>
 
 		<div class="new-field">
 			<p class="index-margin">Body</p>
-			<%= f.text_area :body %>
+			<%= f.text_area :body, class: "book_body" %>
 		</div>
 
 		<div class="new-field">
