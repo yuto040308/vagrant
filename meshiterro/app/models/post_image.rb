@@ -5,4 +5,8 @@ class PostImage < ApplicationRecord
 	# PostImageモデルからuser_idに紐づいてUserモデルを参照できることを指している。
 	# PostImageモデルに紐づくのは、1つのUserモデルなので、単数系になる。
 	belongs_to :user
+
+	# refileを使用する上でのルール
+	# _idは含めない
+	attachment :image
 end
