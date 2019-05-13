@@ -1,4 +1,9 @@
 <section class="index-page">
+	<!-- 削除機能を使用した場合、flashメッセージを表示 -->
+	<% if flash[:notice] %>
+		<p class="notice-index"><%= flash[:notice] %></p>
+	<% end %>
+
 	<h1>Books</h1>
 
 	<!--  DBの内容をテーブルに表示 -->
@@ -18,7 +23,7 @@
 					<td><%= book.body %></td>
 					<td><%= link_to "Show", book_path(book.id),class:"show_#{book.id}" %></td>
 					<td><%= link_to "Edit", edit_book_path(book.id),class:"edit_#{book.id}" %></td>
-					<td><%= link_to "Destroy", book_path(book.id) ,class:"destroy_#{book.id}",method: :delete%></td>
+					<td><%= link_to "Destroy", book_path(book.id) ,class:"destroy_#{book.id}",method: :delete, data: {confirm: "Are you sure?"} %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -31,17 +36,17 @@
 	<%= form_for(@book) do |f| %>
 		
 		<div class="new-field">
-			<p>Title</p>
+			<p class="index-margin">Title</p>
 			<%= f.text_field :title %>
 		</div>
 
 		<div class="new-field">
-			<p>Body</p>
+			<p class="index-margin">Body</p>
 			<%= f.text_area :body %>
 		</div>
 
 		<div class="new-field">
-			<p><%= f.submit 'Create Book'%></p>
+			<p class="index-margin"><%= f.submit 'Create Book'%></p>
 		</div>
 
 	<% end %>

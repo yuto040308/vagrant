@@ -59,7 +59,7 @@ strong {
 	padding-right: 5px;
 }
 
-.index-page p {
+.index-margin {
 	margin: 0;
 }
 
@@ -67,8 +67,9 @@ strong {
 	margin-bottom: 10px;
 }
 
-#notice {
+.notice-index {
 	color: green;
+	margin: 33px;
 }
 
 /*							*/
@@ -78,5 +79,9 @@ strong {
 	margin: 33px;
 	font-family: verdana, arial, helvetica, sans-serif;
 	line-height: 18px;
+}
+
+#notice {
+	color: green;
 }
 
