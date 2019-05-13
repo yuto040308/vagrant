@@ -17,7 +17,7 @@
 		</thead>
 
 		<tbody>
-			<% @books.each do |book| %>
+			<% @books.reverse_each do |book| %>
 				<tr>
 					<td><%= book.title %></td>
 					<td><%= book.body %></td>
