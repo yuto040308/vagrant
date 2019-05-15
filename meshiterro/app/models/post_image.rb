@@ -15,6 +15,10 @@ class PostImage < ApplicationRecord
 	# 画像が削除された際に、いいねも併せて削除する。
 	has_many :favorites, dependent: :destroy
 
+	# 画像、ショップ名の入力を必須にするバリデーション
+	validates :shop_name, presence: true
+	validates :image, presence: true
+
 	# 引数で渡されたユーザーのidがfavoritesテーブル内に存在しているか
 	# 確認する関数
 	def favorited_by?(user)

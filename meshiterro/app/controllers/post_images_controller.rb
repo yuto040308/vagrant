@@ -7,8 +7,12 @@ class PostImagesController < ApplicationController
 	def create
 		@post_image = PostImage.new(post_image_params)
 		@post_image.user_id = current_user.id
-		@post_image.save
-		redirect_to post_images_path
+		if @post_image.save
+			redirect_to post_images_path
+		else
+			#保存に失敗した場合は、new.html.erbを表示するようにする。
+			render :new
+		end
 	end
 
 	def index
