@@ -9,4 +9,8 @@ class PostImage < ApplicationRecord
 	# refileを使用する上でのルール
 	# _idは含めない
 	attachment :image
+
+	# 画像が削除された際に、コメントも併せて削除する。
+	has_many :post_comments, dependent: :destroy
+	
 end
