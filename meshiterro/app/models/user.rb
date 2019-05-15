@@ -12,4 +12,7 @@ class User < ApplicationRecord
   # 1:Nの関係の1のデータが削除された時に、関連するNのデータも
   # 併せて削除してくれる。
   has_many :post_comments, dependent: :destroy
+
+  # favoritesとの関連づけ
+  has_many :favorites, dependent: :destroy
 end

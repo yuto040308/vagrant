@@ -12,5 +12,13 @@ class PostImage < ApplicationRecord
 
 	# 画像が削除された際に、コメントも併せて削除する。
 	has_many :post_comments, dependent: :destroy
+	# 画像が削除された際に、いいねも併せて削除する。
+	has_many :favorites, dependent: :destroy
+
+	# 引数で渡されたユーザーのidがfavoritesテーブル内に存在しているか
+	# 確認する関数
+	def favorited_by?(user)
+		favorites.where(user_id: user.id).exists?
+	end
 	
 end

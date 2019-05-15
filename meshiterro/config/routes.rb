@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   # resources指定。使うルーティングだけonlyで指定してルーティングを絞る
   # コメントは投稿画像に対してコメントされる
   # post_commentはpost_imageに結びつき、親子関係になる。
+  # 親 post_image - 子 favorites
+  #    			  - 子 post_comments
   resources :post_images, only: [:new, :create, :index, :show] do
+  	resource :favorites, only: [:create, :destroy]
   	# resourcesとresourceの違いは、resourceにすると、コントローラのidがリクエストに
   	# 含まれなくなる。1つのリソースに対するCRUD（クラッド）処理を行うために使う。
   	resource :post_comments, only: [:create, :destroy]
