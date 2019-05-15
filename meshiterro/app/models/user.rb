@@ -15,4 +15,8 @@ class User < ApplicationRecord
 
   # favoritesとの関連づけ
   has_many :favorites, dependent: :destroy
+
+  # Refile機能使用のため、記載
+  # profile_image_idから_idを取ったprofile_imageを記述する。
+  attachment :profile_image
 end
