@@ -1,6 +1,12 @@
 <div class="profile-container">
 	<h3 class="profile-name"><%= @user.name %></h3>
-	<%= image_tag('sample-author1.jpg', class: "img-circle pull-left profile-thumb", style: "width: 100px; height: 100px; margin-top: 20px;") %>
+	<!-- attachment_image_tagの右の@user部分に、画像を格納しているカラムを持つインスタンスを入れる。 -->
+	<!-- :profile_imageの部分では、画像が格納されているカラムを指定する。 -->
+	<!-- 正確には、profile_image_idだが、refileの仕様で_idを省くので、profile_imageで指定する。 -->
+	<!-- 引数 :fill 縦横のサイズをpxで指定する。 -->
+	<!-- 引数 :format 画像の拡張子指定  -->
+	<!-- 引数 :fallback 画像データがカラムにない場合に表示される画像 -->
+	<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: 'jpeg', class: "img-circle pull-left profile-img", fallback: "no_image.jpg" %>
 	<% if @user.id == current_user.id %>
 		<p><%= link_to "プロフィール編集", edit_user_path(@user), class: "pull-right" %></p>
 	<% end %>
