@@ -9,6 +9,12 @@ Rails.application.routes.draw do
   root 'post_images#index'
 
   # resources指定。使うルーティングだけonlyで指定してルーティングを絞る
-  resources :post_images, only: [:new, :create, :index, :show]
+  # コメントは投稿画像に対してコメントされる
+  # post_commentはpost_imageに結びつき、親子関係になる。
+  resources :post_images, only: [:new, :create, :index, :show] do
+  	# resourcesとresourceの違いは、resourceにすると、コントローラのidがリクエストに
+  	# 含まれなくなる。1つのリソースに対するCRUD（クラッド）処理を行うために使う。
+  	resource :post_comments, only: [:create, :destroy]
+  end
 
 end
