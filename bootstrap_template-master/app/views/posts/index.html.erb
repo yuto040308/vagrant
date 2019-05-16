@@ -2,30 +2,44 @@
 
 <h1>Posts</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th>Author</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- bootstrapのcontainerとrowで囲う -->
+<div class="container">
+  <div class="row">
+    <!-- lg:1200px以上ならば、4カラム確保 -->
+    <div class="col-lg-4" style="background-color: orange;">
+      <h2>サイドバー</h2>
+    </div>
 
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.body %></td>
-        <td><%= post.author %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <div class="col-lg-8">
+      <!-- bootstrap機能（クラス指定）でレイアウト変更 -->
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th>Author</th>
+            <th colspan="3"></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @posts.each do |post| %>
+            <tr>
+              <td><%= post.title %></td>
+              <td><%= post.body %></td>
+              <td><%= post.author %></td>
+              <td><%= link_to 'Show', post %></td>
+              <td><%= link_to 'Edit', edit_post_path(post) %></td>
+              <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+<!-- bootstrapでボタンデザイン変更 bootstrapのclassを指定 -->
+<%= link_to 'New Post', new_post_path, class:"btn btn-default btn-lg" %>
