@@ -1,0 +1,148 @@
+#
+# おおまかなステップ
+#
+1.要件定義
+2.開発環境作成
+3.画面作成プログラミング＋テスト
+4.要件と合致しているか確認
+5.R-specで認証
+
+1.要件定義
+	＜モデル＞
+		モデル:User(deviseの機能で作成)
+		name				名前					string型
+		introduction		自己紹介文			string型
+		profile_image_id	refileの画像保存用	string型
+
+		モデル:Book 
+		title				本のタイトル			string型
+		body				本の感想				text型
+		# 要件を満たすために追加
+		user_id				本を投稿したユーザ		string型
+
+		関係性
+		User 1:N Book
+
+	＜コントローラ＞
+		＊devise(認証機能)のコントローラは編集禁止なので、
+		　追加したカラムはapplication_controllerに記載する。
+		コントローラ:Users
+			User周りの編集を行うためのコントローラ
+				#edit		ユーザー画像、コメントの編集用
+				#index		ユーザー一覧の表示
+				#show(:id)	ユーザーの情報と、投稿した本の一覧を表示
+
+		コントローラ:Books
+			Booksの編集を行うためのコントローラ
+				#create		本の新規投稿
+				#edit		本の編集ページ
+				#update		本の更新
+				#show		Aさんが投稿した本の一覧表示（ホーム画面）
+				#index		全員が投稿した本の一覧表示
+				#destroy	本の削除
+
+	<ビュー>
+	# 共通ヘッダー
+	_list.html.erb	ヘッダーメニュー
+
+	＃ ログイン関連
+	ログイン画面(devise自動生成？)
+	サインアップ画面(devise自動生成？)
+	パスワード忘れた画面(devise自動生成？)
+
+	# その他
+	TOPページ		index.html.erb
+	Aboutページ		about.html.erb
+
+	# 投稿関連
+	HOMEページ（ユーザーに紐づく本の一覧）		books/show.html.erb
+	 ＊他のユーザーページから飛んだ場合とHOMEボタンから遷移した場合で
+	   表示レイアウトを若干変える。
+	Usersページ（ユーザーの一覧）				users/index.html.erb
+	Booksページ（本の一覧）					books/index.html.erb
+	# ユーザー関連
+	User editページ（ユーザ情報変更）			users/edit.html.erb
+
+2.開発環境作成
+	2-1.アプリケーション資源の作成
+		rails new bookers2
+		作成後、カレントディレクトリの変更
+
+	2-2.deviseのインストール
+		Gemfileの中に以下のように記載
+		gem 'devise'
+		セーブ後、以下のコマンドで反映
+		$ bundle install
+		最後にdeviseを利用するための初期作業を実行
+		$ rails g devise:install
+
+	2-3.deviseのユーザーテーブル作成
+		$ rails g devise User
+		で実行後、db/migrate/YYYYMMDDHHMMSS_devise_create_users.rb
+		の以下の箇所のコメントアウトを外す
+		t.integer  :sign_in_count, default: 0, null: false
+      	t.datetime :current_sign_in_at
+      	t.datetime :last_sign_in_at
+      	t.string   :current_sign_in_ip
+        t.string   :last_sign_in_ip
+
+        そして、今回追加したいカラムをコードに追記する。
+        t.string :name
+        t.string :introduction
+        t.string :profile_image_id
+
+        データベースに反映する。
+        $ rails db:migrate
+
+    2-4.deviseのカスタムビュー設定
+    	deviseのカスタムビューを使えるように、以下のコマンドをたたく
+    	$ rails g devise:views
+    	app/views/devise/sessions/new.html.erb			サインアップ画面
+    	app/views/devise/registrations/new.html.erb		新規登録画面
+    	こいつを編集しよう。
+
+    2-5.コントローラ、モデルの作成
+
+3.開発
+    3-1.application_controllerにdeviseで追加編集したカラムを記載
+    	2章を参照
+
+    3-2.bootstrapの導入
+    	8章を参照
+
+   	3-3.ログイン画面、新規登録画面のレイアウト作成
+
+   	3-4.TOPページのレイアウト作成
+
+   	3-5.aboutページのレイアウト作成
+
+   	3-6.パスワード忘れた時画面のレイアウト作成
+
+   	3-7.homeページの作成
+
+   	3-8.新規投稿機能の作成
+
+   	3-9.編集機能の作成
+
+   	3-10.ユーザー編集機能の作成
+   		refile、refile-mini_magickのgemも導入する。
+   		3章を参照
+
+   	3-11.book一覧ページ作成
+
+   	3-12.user一覧ページ作成
+
+   	3-13.他の人の画面見れるようにする。
+
+   	3-14.制御の実装
+   		・他の人のやつ編集できないようにする。
+   		・URL直接たたいてもアクセスできないようにする。
+
+4.テスト。要件にあっているか画面単位でテストする。
+
+
+5.R-なんとかの起動
+
+6.提出
+
+
