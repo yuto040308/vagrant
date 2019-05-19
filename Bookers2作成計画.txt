@@ -123,16 +123,29 @@ OK  2-5.コントローラの作成
         rails db:migrate
 
 3.開発
-	3-1.ログインのviewを今回のやつに合わせて、
+OK	3-1.ログインのviewを今回のやつに合わせて、
+		ログイン画面
 		デフォルト）Email,passwordログイン
 		今回）name,passwordでログインできるようにする。
 
-    3-1.application_controllerにdeviseで追加編集したカラムを記載
+		新規登録画面
+		デフォルト）Email,password,password(2回目)
+		今回）　　　Name,Email,password,password(2回目)
+		のカラムを変更する。
+
+OK  3-2.application_controllerにdeviseで追加編集したカラムを記載
         して、今回追加したカラムも使用してログインできるようにする。
     	2章を参照
 
-    3-2.bootstrapの導入
+    	*ログイン認証キーはdeviseデフォルトでemail,passwordになっている。
+    	 認証キーの設定は、
+    	 config/initializers/devise.rbのところで
+    	 config.authentication_keys = [:name]
+    	 と記述してあげる必要がある。
+
+    3-3.bootstrapの導入
     	8章を参照
+    	gem fileに対して、以下の文を追加
 
    	3-3.ログイン画面、新規登録画面のレイアウト作成
 
@@ -163,6 +176,11 @@ OK  2-5.コントローラの作成
    		・URL直接たたいてもアクセスできないようにする。
 
 4.テスト。要件にあっているか画面単位でテストする。
+　テストデータ
+　＜ユーザー＞
+	name:test
+	email:test@gmail
+	password:12345678
 
 
 5.R-なんとかの起動
