@@ -50,6 +50,19 @@
 	サインアップ画面(devise自動生成？)
 	パスワード忘れた画面(devise自動生成？)
 
+	app/views/users/confirmations/new.html.erb
+	app/views/users/mailer/confirmation_instructions.html.erb
+	app/views/users/mailer/password_change.html.erb
+	app/views/users/mailer/reset_password_instructions.html.erb
+	app/views/users/mailer/unlock_instructions.html.erb
+	app/views/users/passwords/edit.html.erb
+	app/views/users/passwords/new.html.erb
+	app/views/users/registrations/edit.html.erb
+	app/views/users/registrations/new.html.erb
+	ログイン  app/views/users/sessions/new.html.erb
+	app/views/users/shared/_links.html.erb
+	app/views/users/unlocks/new.html.erb
+
 	# その他
 	TOPページ		index.html.erb
 	Aboutページ		about.html.erb
@@ -68,7 +81,7 @@ OK	2-1.アプリケーション資源の作成
 		rails new bookers2
 		作成後、カレントディレクトリの変更
 
-	2-2.deviseのインストール
+OK	2-2.deviseのインストール
 		Gemfileの中に以下のように記載
 		gem 'devise'
 		セーブ後、以下のコマンドで反映
@@ -76,7 +89,7 @@ OK	2-1.アプリケーション資源の作成
 		最後にdeviseを利用するための初期作業を実行
 		$ rails g devise:install
 
-	2-3.deviseのユーザーテーブル作成
+OK	2-3.deviseのユーザーテーブル作成
 		$ rails g devise User
 		で実行後、db/migrate/YYYYMMDDHHMMSS_devise_create_users.rb
 		の以下の箇所のコメントアウトを外す
@@ -94,17 +107,28 @@ OK	2-1.アプリケーション資源の作成
         データベースに反映する。
         $ rails db:migrate
 
-    2-4.deviseのカスタムビュー設定
+OK  2-4.deviseのカスタムビュー設定
     	deviseのカスタムビューを使えるように、以下のコマンドをたたく
     	$ rails g devise:views
     	app/views/devise/sessions/new.html.erb			サインアップ画面
     	app/views/devise/registrations/new.html.erb		新規登録画面
     	こいつを編集しよう。
 
-    2-5.コントローラ、モデルの作成
+OK  2-5.コントローラの作成
+        rails g controller users edit index show
+        rails g controller books create edit update show index destroy
+
+        モデルの作成
+        rails g model Book title:string body:text user_id:string
+        rails db:migrate
 
 3.開発
+	3-1.ログインのviewを今回のやつに合わせて、
+		デフォルト）Email,passwordログイン
+		今回）name,passwordでログインできるようにする。
+
     3-1.application_controllerにdeviseで追加編集したカラムを記載
+        して、今回追加したカラムも使用してログインできるようにする。
     	2章を参照
 
     3-2.bootstrapの導入
