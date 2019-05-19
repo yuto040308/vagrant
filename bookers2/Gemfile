@@ -63,3 +63,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # ログイン用に、deviseを利用
 gem 'devise'
+# bootstrapの導入
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'

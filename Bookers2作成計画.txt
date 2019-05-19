@@ -146,6 +146,25 @@ OK  3-2.application_controllerにdeviseで追加編集したカラムを記載
     3-3.bootstrapの導入
     	8章を参照
     	gem fileに対して、以下の文を追加
+    	gem 'bootstrap-sass', '~> 3.3.6'
+		gem 'jquery-rails'
+
+		application.cssの拡張子をscss（bootstrapで使えるやつ）
+		に変更
+		app/asset/stylesheet/application.css
+					↓
+		app/asset/stylesheet/application.scss
+
+		application.scssに以下の文を追加
+		@import "bootstrap-sprockets";  /*ここを追加*/
+    	@import "bootstrap";            /*ここを追加*/
+
+    	app/assets/javascripts/application.jsに
+    	以下の文を追加 //も追加すること!!
+    	//= require jquery
+  		//= require bootstrap-sprockets
+
+  	3-4.メニューバー作成
 
    	3-3.ログイン画面、新規登録画面のレイアウト作成
 
