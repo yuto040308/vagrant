@@ -22,8 +22,8 @@
 
 			<div class="row">
 				<!-- 仮置き -->
-				<a class="col-xs-12 btn btn-default glyphicon glyphicon-wrench"></a>
-				
+				<%= link_to edit_user_path(@user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" do %>
+				<% end %>
 			</div>
 
 			<h2>New book</h2>

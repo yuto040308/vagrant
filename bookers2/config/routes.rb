@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   #get 'books/show'
   #get 'books/index'
   #get 'books/destroy'
-  resources :users, only:[:index, :show, :edit]
+  resources :users, only:[:index, :show, :edit, :update]
 
   #get 'users/edit'
   #get 'users/index'

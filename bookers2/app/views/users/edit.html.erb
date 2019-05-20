@@ -1,2 +1,14 @@
-<h1>Users#edit</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
+<h2>User info</h2>
+<%= form_for(@user) do |f| %>
+	<%= f.label :name %>
+	<p><%= f.text_field :name %></p>
+
+	<!-- 画像投稿機能 指定するフィールド名には,profile_image_idから_idを除いた名前にする。  -->
+	<%= f.label "Image" %>
+	<p><%= f.attachment_field :profile_image %></p>
+
+	<%= f.label :introduction %>
+	<p><%= f.text_area :introduction  %></p>
+	
+	<p><%= f.submit "Update User" %></p>
+<% end %>

@@ -8,4 +8,7 @@ class User < ApplicationRecord
   # 1 User:N Book
   has_many :books, dependent: :destroy
 
+  # refile使用 _idは含めない
+  attachment :profile_image
+
 end
