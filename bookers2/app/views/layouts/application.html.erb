@@ -30,10 +30,21 @@
             
             <div class="collapse navbar-collapse" id="navbarEexample7">
               <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-home" %></li>
-                <li><%= link_to " About", home_about_path, class: "glyphicon glyphicon-link" %></li>
-                <li><%= link_to " sign up",new_user_registration_path, class: "glyphicon glyphicon-edit" %></li>
-                <li><%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
+                <!-- ログイン状態に応じて、条件分岐 -->
+                <% if user_signed_in? %>
+                  <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-home" %></li>
+                  <!-- 機能完成するまで、仮実装 -->
+                  <li><a class="glyphicon glyphicon-user" href="#"> Users</a></li>
+                  <li><a class="glyphicon glyphicon-book" href="#"> Books</a></li>
+                  <li><%= link_to " logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %></li>
+                <% else %>
+                  <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-home" %></li>
+                  <li><%= link_to " About", home_about_path, class: "glyphicon glyphicon-link" %></li>
+                  <li><%= link_to " sign up",new_user_registration_path, class: "glyphicon glyphicon-edit" %></li>
+                  <li><%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
+                <% end %>
+
+                
               </ul>
             </div>
           </div>
