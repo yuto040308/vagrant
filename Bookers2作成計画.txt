@@ -185,7 +185,31 @@ OK  3-2.application_controllerにdeviseで追加編集したカラムを記載
 OK	3-8.ログイン、ログアウトによって
 	　　　メニューを変える。
 
-   	3-8.新規投稿機能の作成
+OK	3-9.refile,refile-mini_magickのgemを導入
+		Gemfileに対して、以下の2行を追加
+	    gem "refile", require: "refile/rails", github: 'manfe/refile'
+		gem "refile-mini_magick"
+
+OK	3-10.1:Nの関係性をモデルに実装
+		app/models/user.rbに以下の文を追加
+		has_many :books, dependent: :destroy
+
+		app/models/book.rbに以下の文を追加
+		belongs_to :user
+
+		その後、以下の文をたたく
+		rails db:migrate
+
+OK	3-11.resourcesの設定
+
+
+OK  3-12.ルーティング設定
+   OK ルートパスから送られてきたコントローラで
+   	　ログイン状態により分岐をかける。
+   	　ログイン済み　→ 本の一覧表示
+   	　ログインしてない　→ ログインを促すTOPページ
+
+   	3-13.新規投稿レイアウトの作成
 
    	3-9.編集機能の作成
 
