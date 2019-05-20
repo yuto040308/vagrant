@@ -30,10 +30,10 @@
             
             <div class="collapse navbar-collapse" id="navbarEexample7">
               <ul class="nav navbar-nav navbar-right">
-                <li><a class="glyphicon glyphicon-home" href="#"> Home</a></li>
-                <li><a class="glyphicon glyphicon-link" href="#"> About</a></li>
-                <li><a class="glyphicon glyphicon-edit" href="#"> sign up</a></li>
-                <li><a class="glyphicon glyphicon-log-in" href="#"> login</a></li>
+                <li><%= link_to " Home", root_path, class: "glyphicon glyphicon-home" %></li>
+                <li><%= link_to " About", home_about_path, class: "glyphicon glyphicon-link" %></li>
+                <li><%= link_to " sign up",new_user_registration_path, class: "glyphicon glyphicon-edit" %></li>
+                <li><%= link_to " login", new_user_session_path, class: "glyphicon glyphicon-log-in" %></li>
               </ul>
             </div>
           </div>
