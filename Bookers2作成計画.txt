@@ -164,9 +164,9 @@ OK  3-2.application_controllerにdeviseで追加編集したカラムを記載
     	//= require jquery
   		//= require bootstrap-sprockets
 
-  	3-4.メニューバー作成
+ほぼOK  	3-4.メニューバー作成
 
-   	3-3.ログイン画面、新規登録画面のレイアウト作成
+   	3-3.ログイン画面　OK、新規登録画面のレイアウト作成
 
    	3-4.TOPページのレイアウト作成
 

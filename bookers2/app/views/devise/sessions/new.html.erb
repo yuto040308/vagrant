@@ -29,9 +29,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <!-- classにbootstrapのボタンレイアウトを指定 -->
+    <%= f.submit "Log in",class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
-<p>CopyRight Infratop.inc</p>
+<p class="text-right">CopyRight Infratop.inc</p>
