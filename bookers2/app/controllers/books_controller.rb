@@ -19,7 +19,10 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @user = User.find(current_user.id)
+    # 新規投稿機能用
+    @book_new = Book.new
+    #@user = User.find(current_user.id)
+    @user = User.find(@book.user.id)
   end
 
   def index

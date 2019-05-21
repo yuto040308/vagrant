@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 	# ログインキーに今回追加したnameカラムを追加
 	# deviseを実行する前に下記メゾットが実行される。
 	before_action :configure_permitted_parameters, if: :devise_controller?
+	# 未ログインでアクセスされた時にログイン画面にリダイレクトする。
+	# authenticate_userはdeviseで用意されているメゾット
+	before_action :authenticate_user!
+
 
 	protected
 	def configure_permitted_parameters
