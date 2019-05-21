@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-      redirect_to books_path
+      redirect_to book_path(@book.id)
     else
       @user = User.find(current_user.id)
       @books = Book.all
@@ -12,7 +12,12 @@ class BooksController < ApplicationController
   end
 
   def edit
+    # ログインユーザー以外はeditページに遷移することを禁止
     @book = Book.find(params[:id])
+
+    if @book.user.id != current_user.id
+      redirect_to users_path
+    end
   end
 
   def update
@@ -43,10 +48,6 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path
-  end
-
-  def new
-    
   end
 
   # ストロングパラメータ
