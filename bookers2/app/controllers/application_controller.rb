@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 	before_action :configure_permitted_parameters, if: :devise_controller?
 	# 未ログインでアクセスされた時にログイン画面にリダイレクトする。
 	# authenticate_userはdeviseで用意されているメゾット
-	before_action :authenticate_user!
 
 
 	protected

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+ 
   def edit
   	@user = User.find(params[:id])
   end
@@ -16,9 +18,6 @@ class UsersController < ApplicationController
   	@books = @user.books
   end
 
-  def top
-  end
-
   def update
   	@user = User.find(params[:id])
     # エラーの場合は、editページのままにする。
@@ -29,9 +28,6 @@ class UsersController < ApplicationController
       render :edit
     end
   	
-  end
-
-  def about
   end
 
   # ストロングパラメータ
