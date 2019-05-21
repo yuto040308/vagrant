@@ -75,10 +75,12 @@
 							<!-- 仮で実装（後で直す） -->
 							<!--<th><%= image_tag 'no_image.jpg'%></th>-->
 							<th>
-								<%= attachment_image_tag @user, :profile_image, :fill, 50, 50, format: "jpeg", fallback: "no_image.jpg" %>
+								<%= attachment_image_tag @user, :profile_image, format: "jpeg", fallback: "no_image.jpg", size: "50x50" %>
 							</th>
 
-							<th><%= book.title %></th>
+							<th>
+								<%= link_to book.title, book_path(book.id) %>
+							</th>
 							<th><%= book.body %></th>
 
 						</tr>
