@@ -63,7 +63,7 @@
 
           <!-- ログイン関連のメッセージだけ、文字色を緑に変える。 -->
           <% if flash[:notice] != nil %>
-            <% if flash[:notice] == "You have updated user successfully." %>
+            <% if flash[:notice] == "You have updated user successfully." || flash[:notice] == "You have updated book successfully." %>
               <p><%= flash[:notice] %></p>
             <% else %>
               <p class="text-success"><%= flash[:notice] %></p>
