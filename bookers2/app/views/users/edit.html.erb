@@ -1,4 +1,16 @@
 <h2>User info</h2>
+<!-- エラーがある場合は、出力 -->
+<% if @user.errors.any? %>
+	<div class="text-danger">
+		<h3><%= @user.errors.count %> error prohibited this obj from being saved:</h3>
+    	<ul>
+      	<% @user.errors.full_messages.each do |message| %>
+        	<li><%= message %></li>
+      	<% end %>
+    	</ul>
+	</div>
+<% end %>
+
 <%= form_for(@user) do |f| %>
 	<%= f.label :name %>
 	<p><%= f.text_field :name %></p>

@@ -24,8 +24,13 @@
 			</table>
 
 			<div class="row">
-				<!-- 仮置き -->
-				<%= link_to edit_user_path(@user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" do %>
+				<!-- 自分以外のユーザーは編集禁止でshow画面に飛ばす -->
+				<% if current_user.id == @user.id %>
+					<%= link_to edit_user_path(@user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" do %>
+					<% end %>
+				<% else %>
+					<%= link_to user_path(current_user.id), class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" do %>
+					<% end %>
 				<% end %>
 			</div>
 
