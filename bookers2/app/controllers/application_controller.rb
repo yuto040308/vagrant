@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 	protected
 	def configure_permitted_parameters
 		# sing_upの際、nameのデータ操作を許可
-		devise_parameter_sanitizer.permit(:sign_up, keys: [:name,])
+		# nameはinitializeで定義されているので、email認証とする。
+		devise_parameter_sanitizer.permit(:sign_up, keys: [:email])
 		# sing_inの際にも、nameのデータ操作を許可
 		devise_parameter_sanitizer.permit(:sign_in, keys: [:name])
 	end
