@@ -58,6 +58,16 @@
       <div class="row">
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
+
+          <!-- ログイン関連のメッセージだけ、文字色を緑に変える。 -->
+          <% if flash[:notice] != nil %>
+            <% if flash[:notice] == "You have updated user successfully." %>
+              <p><%= flash[:notice] %></p>
+            <% else %>
+              <p class="text-success"><%= flash[:notice] %></p>
+            <% end %>
+          <% end %>
+
           <%= yield %>
         </div>
         <div class="col-lg-1"></div>

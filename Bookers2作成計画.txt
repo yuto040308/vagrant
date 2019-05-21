@@ -217,7 +217,7 @@ OK  3-13.新規投稿レイアウトの作成
    		refile、refile-mini_magickのgemも導入する。
    		3章を参照
 
-   		3-16.登録時のメッセージ表示
+OK   	3-16.登録時のメッセージ表示
 
    3-15.編集機能の作成
 
@@ -238,6 +238,10 @@ OK  3-13.新規投稿レイアウトの作成
 　＜ユーザー＞
 	name:test
 	email:test@gmail
+	password:12345678
+
+	name:testtest
+	email:testtest@gmail
 	password:12345678
 
 
