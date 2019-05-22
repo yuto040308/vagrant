@@ -2,7 +2,15 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
  
   def edit
+    
   	@user = User.find(params[:id])
+
+    # ログインユーザー以外は編集禁止
+    if @user.id != current_user.id
+      #redirect_to users_path
+      redirect_to user_path(current_user.id)
+    end
+
   end
 
   def index
