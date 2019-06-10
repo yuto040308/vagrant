@@ -1,5 +1,0 @@
-問1.a NG
-    正解はc. Gemfileへの書き方は、
-    gem 'gem名'
-
-問2.a OK
